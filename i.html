@@ -1,0 +1,14 @@
+<!doctype html>
+
+
+<script>
+
+function Getnews() {
+
+fetch('http://newsapi.org/v2/top-headlines?country=us&apikey=75b6b435ca6946f18317477b53b6439a', {headers: new Headers({"X-Requested-With":"wkgfjkhdgfhkusvsbvkhbhsb"})}).then(a => a.json()).then(response => {for(var i=0; i<response.articles.length; i++){document.getElementById("output").innerHTML +="<div style='padding-top: 20px;'><img style='float:left; width: 150px;'src='"+response.articles[i].urlTolmage+"'><h1>"+response.articles[i].title+"</h1>"+response.articles[i].source.name+"<br>"+response.articles[i].description+"<ahref='"+response.articles[i].url+"'target='_blank'>"+response.articles[i].url+"</a></div>";
+}
+})
+}
+</script>
+<button onclick='Getnews()'>Get news</button>
+<div id="output"></div>
